@@ -3,6 +3,7 @@ const scoreBoard = document.querySelector(".score");
 const moles = document.querySelectorAll(".mole");
 let lastHole;
 let timeUp;
+let score = 0;
 
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -21,7 +22,7 @@ function randomHole(holes) {
 }
 
 function popUp() {
-  const time = randomTime(200, 1000);
+  const time = randomTime(200, 1500);
   const hole = randomHole(holes);
   hole.classList.add("up");
   setTimeout(() => {
@@ -33,6 +34,17 @@ function popUp() {
 function startGame() {
   scoreBoard.textContent = 0;
   timeUp = false;
+  score = 0;
   popUp();
   setTimeout(() => (timeUp = true), 10000);
 }
+
+function bonk(e) {
+  if (!e.isTrusted) return; // ensures its a pointer/mouse event
+  score++;
+  console.log(this);
+  this.parentNode.classList.remove("up");
+  scoreBoard.textContent = score;
+}
+
+moles.forEach((mole) => mole.addEventListener("click", bonk));
