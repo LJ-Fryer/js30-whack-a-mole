@@ -13,17 +13,33 @@
     />
   </head>
   <body>
-    <div class="header">
+    <div class="header flex">
       <select name="levels" id="levels">
         <option value="default">Levels</option>
         <option value="400,2000">1️⃣ Chill</option>
         <option value="200,1500">2️⃣ Let's Go</option>
-        <option value="100,1200">3️⃣ Hectic</option>
+        <option value="120,1200">3️⃣ Hectic</option>
       </select>
+      <div class="leader-board">
+        <div class="rank">
+          🥇 <span class="rank-name">Name</span>
+          <span class="rank-level">Level</span>
+          <span class="rank-score">Score</span>
+        </div>
+        <div class="rank">
+          🥈 <span class="rank-name">Name</span>
+          <span class="rank-level">Level</span>
+          <span class="rank-score">Score</span>
+        </div>
+        <div class="rank">
+          🥉 <span class="rank-name">Name</span>
+          <span class="rank-level">Level</span>
+          <span class="rank-score">Score</span>
+        </div>
+      </div>
     </div>
     <h1>Whack-a-mole! <span class="score">0</span></h1>
-
-    <button class="start" onClick="startGame()">Start!</button>
+    <button class="start flex" onClick="startGame()">Start!</button>
     <div class="game">
       <div class="hole hole1">
         <div class="mole"></div>
@@ -44,7 +60,11 @@
         <div class="mole"></div>
       </div>
     </div>
-
+    <div class="wrapper">
+      <div class="progress center">
+        <div class="progress-bar" id="bar"></div>
+      </div>
+    </div>
     <script src="./index.js"></script>
   </body>
 </html>

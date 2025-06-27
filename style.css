@@ -24,7 +24,8 @@ h1 {
   margin-bottom: 0;
 }
 
-button {
+button.start {
+  margin: 10px auto 0;
   padding: 8px 16px;
   border: 2px solid #fff0ee;
   box-shadow: 1px 1px 0 rgba(255, 193, 187, 0.8);
@@ -32,16 +33,18 @@ button {
   font-family: "Amatic SC", cursive;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #fff0ee;
+  background-color: #fc201c;
+  color: #eee;
 }
-
-button.start {
-  margin: 10px auto 0;
-  display: block;
-  background-color: rgba(252, 3, 3, 0.8);
+.center {
+  text-align: center;
+}
+.flex {
+  display: flex;
 }
 
 #levels {
+  position: sticky;
   padding: 5px;
   background-color: rgba(252, 3, 3, 0.8);
   border: 2px solid #fff0ee;
@@ -51,20 +54,52 @@ button.start {
   color: white;
 }
 
-.center {
-  text-align: center;
-}
-.flex {
-  display: flex;
-  justify-content: space-around;
-}
 .selectLevel {
   text-align: left;
 }
 .header {
-  position: sticky;
+  justify-content: space-evenly;
   margin: 20px 40px 0;
 }
+
+.leader-board {
+  display: grid;
+  margin: auto;
+  margin-left: 3rem;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+}
+
+.wrapper {
+  margin: 15px auto 0;
+  width: 15%;
+  display: flex;
+}
+
+.progress {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: 1px 1px 0 rgba(255, 193, 187, 0.8);
+  background-color: #eee;
+}
+
+.progress-bar {
+  height: 2rem;
+  display: flex;
+  border-radius: 2rem;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 0 rgba(210, 159, 154, 0.8);
+  color: #eee;
+}
+
 .score {
   background: rgba(255, 255, 255, 0.2);
   padding: 0 3rem;
