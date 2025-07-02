@@ -4,13 +4,37 @@ const moles = document.querySelectorAll(".mole");
 const levels = document.querySelector("#levels");
 const progress = document.querySelector(".progress");
 const bar = document.querySelector(".progress-bar");
+const leaderBoard = document.getElementById("leader-board");
 
-let lastHole;
-let timeUp;
+let lastHole, timeUp, timerInterval;
+
 let score = 0;
 let minimum = 200,
   maximum = 1500;
-let timerInterval;
+
+let playerName, playerScore, playerlevel;
+
+let players = [
+  { name: "player1", score: "7" },
+  { name: "player2", score: "9" },
+  { name: "player3", score: "6" },
+]; //array of objects
+players
+  .sort((a, b) => b.score - a.score)
+  .forEach((player, index) => {
+    const enterPlayer = document.createElement("div");
+    enterPlayer.classList.add("rank");
+    let medals = ["🥇", "🥈", "🥉"];
+    let medal = medals[index];
+    // let rank = index + 1,
+    playerName = player.name;
+    playerScore = player.score;
+    enterPlayer.innerHTML = `
+  <span class="player-rank">${medal}</span> 
+  <span class="player-name">${playerName}</span> 
+  <span class="player-score">${playerScore}</span>`;
+    leaderBoard.appendChild(enterPlayer);
+  });
 
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -78,6 +102,9 @@ function bonk(e) {
   score++;
   this.parentNode.classList.remove("up");
   scoreBoard.textContent = score;
+  // move score into localStorage
+  latestScore = score;
+  console.log("latest score = ", latestScore);
 }
 
 moles.forEach((mole) => mole.addEventListener("click", bonk));

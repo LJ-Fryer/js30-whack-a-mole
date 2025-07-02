@@ -23,8 +23,12 @@ h1 {
   line-height: 1;
   margin-bottom: 0;
 }
+.flex {
+  display: flex;
+}
 
 button.start {
+  display: flex;
   margin: 10px auto 0;
   padding: 8px 16px;
   border: 2px solid #fff0ee;
@@ -36,14 +40,8 @@ button.start {
   background-color: #fc201c;
   color: #eee;
 }
-.center {
-  text-align: center;
-}
-.flex {
-  display: flex;
-}
 
-#levels {
+.levels {
   position: sticky;
   padding: 5px;
   background-color: rgba(252, 3, 3, 0.8);
@@ -54,25 +52,62 @@ button.start {
   color: white;
 }
 
-.selectLevel {
-  text-align: left;
-}
 .header {
-  justify-content: space-evenly;
+  display: flex;
   margin: 20px 40px 0;
+  justify-content: space-evenly;
 }
-
+input::placeholder {
+  color: #eee;
+  font-size: 1.3rem;
+}
 .leader-board {
   display: grid;
-  margin: auto;
-  margin-left: 3rem;
-  gap: 2rem;
+  margin: 0 auto;
+  gap: 3rem;
   grid-template-columns: 1fr 1fr 1fr;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+}
+
+.rank {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  text-transform: capitalize;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.rank span {
+  align-content: center;
+  text-align: center;
+}
+.player-rank {
+  font-size: 1.5em;
+}
+.player-name {
+  padding: 0 1rem;
   font-size: 1.8rem;
 }
 
-.wrapper {
+.player-score {
+  padding: 0.5rem 1rem;
+  color: #fc201c;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 0 rgba(241, 239, 238, 0.8);
+}
+.rank-form {
+  /* display: none; */
+  padding-bottom: 0.5rem;
+  text-align: center;
+  border-radius: 1em;
+  border: 1px solid #eee;
+  background-color: hsl(211, 52%, 50%);
+  color: #eee;
+}
+
+.wrapper-progress {
   margin: 15px auto 0;
   width: 15%;
   display: flex;
@@ -86,6 +121,7 @@ button.start {
   overflow: hidden;
   box-shadow: 1px 1px 0 rgba(255, 193, 187, 0.8);
   background-color: #eee;
+  text-align: center;
 }
 
 .progress-bar {
